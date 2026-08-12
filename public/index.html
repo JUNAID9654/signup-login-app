@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Sign-Up & Login App</h1>
+    <p>Save your name, register, and log in — all in one spot.</p>
+    <div class="input-box">
+        <input type="text" id="name" placeholder="Enter your name">
+        <button id="btn">Save</button>
+    </div>
+
+    <p>Latest Saved Name: <span id="latestName">None</span></p>
+    <p id="message"></p>
+    <hr>
+
+    <h3>Manage Latest User</h3>
+    <input type="text" id="updateName" placeholder="Enter new name">
+    <button id="updateBtn">Update</button>
+    <button id="deleteBtn">Delete</button>
+
+    <hr>
+    <h3>Register</h3>
+    <input type="text" id="registerName" placeholder="Name">
+    <input type="email" id="registerEmail" placeholder="Email">
+    <input type="password" id="registerPassword" placeholder="Password">
+    <button id="registerBtn">Register</button>
+    <p id="registerMessage"></p>
+
+    <hr>
+    <h3>Login</h3>
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <p id="loginMessage"></p>
+
+    <button id="logoutBtn">Logout</button>
+    <p id="logoutMessage"></p>
+
+    
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

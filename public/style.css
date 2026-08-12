@@ -1,0 +1,158 @@
+/* ===== Reset & base styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+/* ===== Background =====
+   A soft diagonal gradient (purple -> blue) instead of a flat color.
+   "background-attachment: fixed" keeps it steady if the page ever scrolls. */
+body {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* =========================================================
+   ALIGNMENT FIX
+   Instead of every element having its own random margin,
+   .container is now a vertical flexbox with ONE gap value.
+   This automatically lines everything up (h1, p, inputs,
+   buttons, hr...) with equal, consistent spacing top to bottom.
+   ========================================================= */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 450px;
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;   /* children stretch to full card width */
+    gap: 14px;              /* equal spacing between every child */
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.container p:first-of-type {
+    color: #666;
+    margin-top: -6px; /* pulls it slightly closer to the title */
+}
+
+/* ===== Divider lines ===== */
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* Section titles (Manage Latest User / Login) are left-aligned
+   so they read like real section headers, not centered noise */
+h3 {
+    color: #2c3e50;
+    text-align: left;
+}
+
+/* ===== The "Save" row (name input + Save button) =====
+   This is the one row that stays horizontal, so we turn
+   its flex direction back to "row" and let the input grow. */
+.input-box {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.input-box input {
+    flex: 1;           /* input fills the remaining space */
+    min-width: 0;       /* lets it shrink properly on small screens */
+}
+
+.input-box button {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+/* ===== All standalone inputs & buttons (update, login, etc) =====
+   Full width so they all line up with the card edges. */
+input {
+    width: 100%;
+    height: 45px;
+    padding: 10px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+input:focus {
+    border-color: #4a90e2;
+}
+
+button {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 8px;
+    background: #4a90e2;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #357bd8;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Make the Delete button look different (red) so it stands out as risky */
+#deleteBtn {
+    background: #e74c3c;
+}
+
+#deleteBtn:hover {
+    background: #c0392b;
+}
+
+/* Make the Logout button look neutral (gray) */
+#logoutBtn {
+    background: #7f8c8d;
+}
+
+#logoutBtn:hover {
+    background: #636e72;
+}
+
+/* ===== Messages =====
+   Negative margin pulls them a bit closer to the element above them,
+   since the flex "gap" already adds space everywhere. */
+#message,
+#loginMessage,
+#logoutMessage {
+    margin-top: -6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2c3e50;
+    min-height: 20px;
+}
+
+/* ===== "Latest Saved Name" line ===== */
+#latestName {
+    color: #4a90e2;
+    font-weight: bold;
+}
