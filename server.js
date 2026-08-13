@@ -18,6 +18,15 @@ if (!JWT_SECRET) {
     throw new Error("JWT_SECRET is missing from .env");
 }
 
+db.run(`
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT,
+        email TEXT UNIQUE,
+        password TEXT
+    )
+`);
+
 function authenticateToken(req, res, next) {
     const authHeader = req.headers["authorization"];
     const token = authHeader && authHeader.split(" ")[1];
